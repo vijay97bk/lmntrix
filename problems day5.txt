@@ -1,0 +1,315 @@
+problem 1
+randomvar=$((RANDOM))
+
+problem 2
+randomvar=$((RANDOM%6+1))
+
+problem 3
+#!/bin/bash -x
+variable1=$((RANDOM%6+1))
+variable2=$((RANDOM%6+1))
+echo $variable1
+echo $variable2
+sum=$((variable1+variable2))
+echo $sum
+
+
+program 4
+v1=$((RANDOM%89+10))
+v2=$((RANDOM%89+10))
+v3=$((RANDOM%89+10))
+v4=$((RANDOM%89+10))
+v5=$((RANDOM%89+10))
+sum=$((v1+v2+v3+v4+v5))
+avg=$((sum/5))
+echo sum=$sum
+echo avg=$avg
+
+problem 5
+a)
+echo enter_ft_value
+read ft
+inch=$((ft*12))
+echo $inch
+
+b)
+!/bin/bash -x
+v1=60
+v2=40
+v3=18.228
+v4=12.192
+echo $v3 x $v4 meter
+
+c)
+echo "enter a plot number"
+read num
+acre=`awk "BEGIN{PRINT (($NUM/6))}"`
+plotacre=`awk "BEGIN{print (($acre*120))}"`
+echo "plot to acre in feet : $plotacre"
+
+
+problems on if & else
+
+problem1
+#!/bin/bash -x
+n1=$((RANDOM%899+100))
+n2=$((RANDOM%899+100))
+n3=$((RANDOM%899+100))
+n4=$((RANDOM%899+100))
+n5=$((RANDOM%899+100))
+if [ $n1 -gt $n2 ] && [ $n1 -gt $n2 ] && [ $n1 -gt $n3 ] && [ $n1 -gt $n4 ] && [ $n1 -gt $n5 ] ; then
+      echo "$n1 is a max Number"
+elif [ $n2 -gt $n3 ] && [ $n2 -gt $n3 ] && [ $n2 -gt $n4 ] && [ $n2 -gt $n5 ] ; then
+     echo "$n2 is a max Number"
+elif [ $n3 -gt $n4 ] && [ $n3 -gt $n5 ] ; then
+     echo "$n3 is a max Number"
+elif [ $n4 -gt $n5 ] ; then
+     echo "$n4 is a max Number"
+else
+     echo "$n5 is a max Number"
+fi
+
+if [ $n1 -lt $n2 ] && [ $n1 -lt $n2 ] && [ $n1 -lt $n3 ] && [ $n1 -lt $n4 ] && [ $n1 -lt $n5 ] ; then
+      echo "$n1 is a min Number"
+elif [ $n2 -lt $n3 ] && [ $n2 -lt $n3 ] && [ $n2 -lt $n4 ] && [ $n2 -lt $n5 ] ; then
+     echo "$n2 is a Greatest Number"
+elif [ $n3 -lt $n4 ] && [ $n3 -lt $n5 ] ; then
+     echo "$n3 is a min Number"
+elif [ $n4 -lt $n5 ] ; then
+     echo "$n4 is a min Number"
+else
+     echo "$n5 is a min Number"
+fi
+
+
+
+problem2
+#!/bin/bash -x
+
+read -p " Enter Date:-" date
+read -p " Enter Month:-" Month
+
+if (( ($Month <= 6 & $date <= 20) ))
+then
+        echo $Month $date "True";
+
+elif (( ($Month >= 3 & $Month < 6) & ($date<31)  ))
+then
+        echo $date $Month "True";
+
+else
+
+        echo "False";
+fi
+
+
+
+problem 3
+#!/bin/bash
+echo "Enter the year (YYYY)"
+read year
+
+if [ $((year % 4)) -eq 0 ]
+then
+  if [ $((year % 100)) -eq 0 ]
+    then
+    if [ $((year % 400)) -eq 0 ]
+          then
+        echo "its a leap year"
+    else
+           echo "its not a leap year"
+    fi
+  else
+  echo "Its a leap year"
+  fi
+else
+ echo "its not a leap year"
+fi
+
+
+problem 4
+#!/bin/bash
+Result=$((RANDOM%2))
+if [[ ${Result} -eq 0 ]]; then
+    echo HEADS
+elif [[ ${Result} -eq 1 ]]; then
+    echo TAILS
+fi
+
+problems on if, elif and else
+
+problem 1
+#!/bin/bash -x
+echo enter_single_digit_number
+read randomvar
+echo $randomvar
+if [ $randomvar -eq 0 ]
+then
+   echo zero
+elif [ $randomvar -eq 1 ]
+then
+   echo one
+elif [ $randomvar -eq 2 ]
+then
+   echo two
+elif [ $randomvar -eq 3 ]
+then
+   echo three
+elif [ $randomvar -eq 4 ]
+then
+   echo four
+elif [ $randomvar -eq 5 ]
+then
+        echo five
+elif [ $randomvar -eq 6 ]
+then
+   echo six
+elif [ $randomvar -eq 7 ]
+then
+   echo seven
+elif [ $randomvar -eq 8 ]
+then
+   echo eight
+else
+   echo nine
+fi
+
+problem 2
+#!/bin/bash -x
+echo enter_num
+read num
+if [ $num == 1 ]
+then echo sunday
+elif [ $num == 2 ]
+then echo monday
+elif [ $num == 3 ]
+then echo tuesday
+elif [ $num == 4 ]
+then echo wednesdy
+elif [ $num == 5 ]
+then echo thursday
+elif [ $num == 6 ]
+then echo friday
+elif [ $num == 7 ]
+then echo saturday
+fi
+
+problem 3
+#!/bin/bash -x
+echo "enter numbre 1, 10, 100, 1000: "
+read a
+case $a in
+1) echo unit ;;
+10) echo ten ;;
+100) echo hundred ;;
+1000) echo thousand ;;
+esac
+
+problem 4
+#!/bin/bash -x
+echo "enter first number "
+read a
+echo "enter 2nd number "
+read b
+echo "enter 3rd number "
+read c
+echo operation1_a+b*c
+o1=$((a+b*c))
+echo $o1
+echo operation2_a%b+c
+o2=$((a%b+c))
+echo $o2
+echo operation3_c+a/b
+o3=$((c+a/b))
+echo $o3
+echo operation4_a*b+c
+o4=$((a*b+c))
+echo $o4
+
+if [ $o1 -gt $o2 ] && [ $o1 -gt $o2 ] && [ $o1 -gt $o3 ] && [ $o1 -gt $o4 ] ; then
+      echo "$o1 is a max Number"
+elif [ $o2 -gt $o3 ] && [ $o2 -gt $o3 ] && [ $o2 -gt $o4 ] ; then
+     echo "$o2 is a max Number"
+elif [ $o3 -gt $o4 ] ; then
+     echo "$o3 is a max Number"
+else
+     echo "$o4 is a max Number"
+fi
+
+if [ $o1 -lt $o2 ] && [ $o1 -lt $o2 ] && [ $o1 -lt $o3 ] && [ $o1 -lt $o4 ] ; then
+      echo "$o1 is a min Number"
+elif [ $o2 -lt $o3 ] && [ $o2 -lt $o3 ] && [ $o2 -lt $o4 ] ; then
+     echo "$o2 is a min Number"
+elif [ $o3 -lt $o4 ] ; then
+     echo "$o3 is a min Number"
+else
+     echo "$o4 is a min Number"
+fi
+
+
+
+
+Selection Practice Problems with case statement
+ 
+problem 1
+
+#!/bin/bash -x
+echo "enter numbre 1 to 9: "
+read a
+case $a in
+1) echo one ;;
+2) echo two ;;
+3) echo three ;;
+4) echo four ;;
+5) echo five ;;
+6) echo six ;;
+7) echo seven ;;
+8) echo eight ;;
+9) echo nine ;;
+esac
+
+problem 2
+#!/bin/bash -x
+echo "enter numbre 1 to 7: "
+read a
+case $a in
+1) echo sunday ;;
+2) echo monday ;;
+3) echo tuesday ;;
+4) echo wednesday ;;
+5) echo thursday ;;
+6) echo friday ;;
+7) echo saturday ;;
+esac
+
+problem 3
+#!/bin/bash -x
+echo "enter numbre 1, 10, 100, 1000: "
+read a
+case $a in
+1) echo unit ;;
+10) echo ten ;;
+100) echo hundred ;;
+1000) echo thousand ;;
+esac
+
+problem 4
+#!/bin/bash -x
+echo "enter 1 for feet to inch "
+echo "enter 2 for feet to meter"
+echo "enter 3 for inch to feet "
+echo "enter 4 for meter to feet "
+read num
+echo "entered number is $num "
+echo " enter a digit to convert "
+read num2
+case $num in
+1) c1=$((num2*12))
+         echo $c1 ;;
+2) c2=$((num2/3.281))
+         echo $c2 ;;
+3) c3=$((num2/12))
+         echo $c3 ;;
+4) c4=$((num2*3.182))
+         echo $c4;;
+esac

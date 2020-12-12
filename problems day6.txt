@@ -1,0 +1,268 @@
+While loop problems 
+
+
+1. Write a program that takes a command-line argument n and prints a table of the powers of 2 that are less than or equal to 2^n.
+
+#! /bin/bash -x
+echo enter a number
+read number
+for((i=0;i<=$number;i++))
+do
+poweroftwo=$((2**$i))
+echo $i " "$poweroftwo
+done
+
+problem 2
+#!/bin/bash
+echo "Enter a number"
+read n
+i=1
+sum=0
+while [ $i -le $n ]
+do
+sum=`expr $sum + \( 10000 / $i \)`
+i=`expr $i + 1`
+done
+echo "Sum n series is"
+i=1
+while [ $i -le 5 ]
+do
+a=`echo $sum | cut -c $i`
+echo -e "$a\c"
+if [ $i -eq 1 ]
+then
+echo -e ".\c"
+fi
+i=`expr $i + 1`
+done
+echo
+
+
+
+3. Write a program that takes a input and determines if the number is a prime.
+#! /bin/bash
+echo "enter a num"
+read num
+for((i=2; i<=num/2; i++))
+do
+if [ $((num%i)) -eq 0 ]
+then
+echo "$num is not a prime number"
+exit
+fi
+done
+echo "$num is a prime number"
+
+
+4. Extend the program to take a range of number as input and output the Prime Numbers in that range.
+#! /bin/bash
+echo "Enter the number"
+read a
+echo "Enter the second number"
+read b
+for (( i=$a+1; i <= $b; i++ ))
+do
+p=0
+for (( j=2; j <= $i-1; j++ ))
+do
+if [ `expr $i % $j` = 0 ]
+then
+p=1
+break
+fi
+done
+if [ `expr $p` = 0 ]
+then
+echo $i
+fi
+done
+
+
+5. Write a program that computes a factorial of a number taken as input
+#! /bin/bash
+echo Enter Number
+read num
+factorial=1
+for ((i=1;i<=num;i++))
+do
+    factorial=$(($factorial*$i))
+done
+echo Factorial of $num is $factorial
+
+
+6. Write a program to compute Factors of a number N using prime factorization method.
+#! /bin/bash
+echo "enter an integer:"
+read input
+if [ $input -lt 1 ];then
+echo "not allowed!"
+exit 1
+fi
+i=2
+count=0
+flag=0
+for ((i;i<$input;))
+do
+if [ `expr $input % $i` -eq 0 ];then
+     factor=$i
+ for ((j=2;j<=`expr $factor / 2`;));do
+    flag=0
+      if [ `expr $factor % $j` -eq 0 ];then
+      flag=1
+      break
+      fi
+      j=`expr $j + 1`
+  done
+  if [ $flag -eq 0 ];then
+  echo "[ $factor ]"
+  count=1
+  fi
+  fi
+i=`expr $i + 1`
+  done
+  if [ $count -eq 0 ];then
+  echo "no prime factors found except 1 and $input"
+  fi
+
+While loop problems
+
+problem 1
+#power of 2
+echo enter a num
+read num
+for((i=0;i<=$num;i++))
+do
+poweroftwo=$((2**$i))
+echo $i"   "$poweroftwo
+done
+
+problem 2
+#!/bin/bash -x
+echo "Consider a number between 1 to 100"
+isCorrect="False"
+minBound=0
+maxBound=100
+min=0
+while [ $isCorrect == False ]
+do
+mid=$(( ( $maxBound + $minBound ) / 2))
+read -p "is $mid the correct answer : True of False "
+isCorrect
+if [ $isCorrect == "True" ]
+then
+break
+else
+read -p "is The number Greater or Less than $mid : Enter
+greater or less " grtOrLess
+if [ $grtOrLess == "Greater" ]
+then
+minBound=$mid
+else
+maxBound=$mid
+fi
+fi
+done
+magicNumber=$mid
+while [ $magicNumber -ne 1 ]
+do
+firstNumber=$(( $magicNumber / 10 ))
+secondNumber=$(( $magicNumber % 10))
+magicNumber=$(( $firstNumber + $secondNumber ))
+if [ $magicNumber -eq 1 ]
+then
+echo "The Number is a Magic Number"
+break
+else
+if [ $firstNumber -eq 0 ]
+then
+echo "The Number is not a magic Number"
+break
+fi
+fi
+done
+
+problem 3
+#!/bin/bash -x
+head=0
+tail=0
+while [ $head -lt 11 -a $tail -lt 11 ]
+do
+randomvar=$((RANDOM%2))
+if [ $randomvar -eq 0 ]
+then
+((head++))
+else
+((tail++))
+fi
+echo $head
+echo $tail
+
+
+problem 4
+gamb=100
+win=0
+loss=0
+toss=1
+bet=0
+while [ $gamb -lt 200 -a $gamb -gt 0 ]
+do
+var=$((RANDOM%2))
+if [ $var -eq 0 ]
+then
+((win++))
+((gamb++))
+else
+((loss++))
+((gamb--))
+fi
+((bet++))
+done
+echo $gamb
+echo $win $bet
+
+
+Functions problems
+
+problem 1
+#!/bin/bash -x
+read -p "enter celsius or fahrenheit value" n
+celsius=0
+fahrenheit=$((RANDOM%2))
+function unitconversion()
+{
+case $degreecheck in
+$celsius)
+echo "$celsius C =$fahrenheit F"
+;;
+$fahrenheit)
+echo "$fahrenheit F =$celsius C"
+esac
+}
+if [[ $degreecheck -eq 0 ]]
+then
+celsius=`awk -v n="$fahrenheit" "BEGIN {print ($n - 32) * (5/9)}"`
+else
+fahrenheit=`awk -v n="$celsius" "BEGIN {print (9/5) * ($n + 32)}"`
+fi
+
+
+problem 2
+#!/bin/bash
+echo -n "Enter number : "
+read n
+sd=0
+rev=""
+on=$n
+while [ $n -gt 0 ]
+do
+    sd=$(( $n % 10 ))
+    n=$(( $n / 10 ))
+    rev=$( echo ${rev}${sd} )
+done
+if [ $on -eq $rev ];
+then
+  echo "Number is palindrome"
+else
+  echo "Number is NOT palindrome"
+fi
+
