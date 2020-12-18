@@ -1,0 +1,70 @@
+Arithmetic Computation & Sorting
+
+#!/bin/bash -x
+#UC1
+echo "enter the value of a:"
+read a
+echo "enter the value of b:"
+read b
+echo "enter value of c:"
+read c
+
+#UC2
+op1=($a + $b * $c)
+
+#UC3
+op2=($a * $b + $c)
+
+#UC4
+op3=($c + $a / $b)
+
+#UC5
+op4=($a % $b + $c)
+
+#UC6
+results=($op1 $op2 $op3 $op4)
+
+#UC7
+echo the results are: ${results[@]}
+
+#UC8
+echo sorting array ${results[@]} | sort
+
+#UC9
+echo "Sorting in reverse ${results[@]} | sort -r"
+
+
+
+Flip Coin Simulation Problem
+
+#!/bin/bash -x
+#UC1
+H=0
+T=0
+while [ $H -le 21 -o $T -le 21 ]
+do
+HT=$((RANDOM%2))
+        if [ HT -eq 0 ]
+        then
+        ((H++))
+
+        else
+        ((T++))
+        fi
+done
+echo "H:$H & T:$T"
+
+
+FlipCoinCombination
+
+#!/bin/bash -x
+H=0
+T=0
+for (i=1;i<=10;i++)
+HT=$((RANDOM%2))
+if [ HT -eq 0 ]
+        then ((H++))
+else ((T++))
+fi
+HeadTail[i]=$HT
+echo ${HeadTail[@]}
